@@ -119,7 +119,6 @@ T* QueueLinked<T>::dequeue()
       item = back;
       back->setNext(NULL);
 
-      delete back;
       sz--;
    }
    else
@@ -131,7 +130,6 @@ T* QueueLinked<T>::dequeue()
       
       item = front;
 
-      delete front;
       sz--;
    }
 
