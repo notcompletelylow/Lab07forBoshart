@@ -51,13 +51,15 @@ double RombergIntegration::accurateRomberg(MultiVarFunction* f, double a, double
       double less = q1->dequeue()->getValue();
       double more = q1->peek()->getValue();
 
-      q2->enqueue(((factor * more) - less) / (factor - 1));
+      Double* formula = new Double(((factor * more) - less) / (factor - 1));
+
+      q2->enqueue(formula);
      
       if (q1->size() == 1)
       {
          q1->dequeue();
 
-         for (i = q2->size(); i > 0; i--;)
+         for (int i = q2->size(); i > 0; i--)
          {
             q1->enqueue(q2->dequeue());
          }
