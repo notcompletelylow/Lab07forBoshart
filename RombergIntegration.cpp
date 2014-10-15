@@ -24,7 +24,7 @@ double RombergIntegration::accurateRomberg(MultiVarFunction* f, double a, double
       //put all of the level 0 results on the q1
 		
 	  
-      db = romberg(f, a, b, n);
+      db = new Double(RecursiveIntegration::romberg(f, a, b, n));
 
       q1->enqueue(db);
 
@@ -41,7 +41,7 @@ double RombergIntegration::accurateRomberg(MultiVarFunction* f, double a, double
    //the total number of executions of the loop is ??
 
    //DO THIS
-   int iterations =                //can be precomputed
+   int iterations = pow(2, level);            //can be precomputed
    while (iterations > 0)
    {
       //DO THIS
